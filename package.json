@@ -1,6 +1,6 @@
 {
   "name": "commitpilot-ai",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An AI-powered CLI tool that automatically generates meaningful, well-structured git commit messages from your staged changes. Supports free offline mode via Ollama, mood personalities, git personality scoring, and team leaderboards.",
   "bin": {
     "commitpilot-ai": "./bin/cli.js"
