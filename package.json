@@ -1,9 +1,9 @@
 {
-  "name": "commit-sage",
+  "name": "commitpilot-ai",
   "version": "2.0.0",
   "description": "An AI-powered CLI tool that automatically generates meaningful, well-structured git commit messages from your staged changes. Supports free offline mode via Ollama, mood personalities, git personality scoring, and team leaderboards.",
   "bin": {
-    "commit-sage": "./bin/cli.js"
+    "commitpilot-ai": "./bin/cli.js"
   },
   "main": "./src/index.js",
   "type": "module",
@@ -26,9 +26,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ankurojha/commit-sage"
+    "url": "git+https://github.com/ankurojha834/commitpilot-ai.git"
   },
-  "homepage": "https://github.com/ankurojha/commit-sage#readme",
+  "homepage": "https://github.com/ankurojha834/commitpilot-ai#readme",
   "engines": {
     "node": ">=18.0.0"
   },

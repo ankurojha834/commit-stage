@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-console.log("🔥 commit-sage is working!");
+console.log("🔥 commitpilot-ai is working!");
 import { execSync } from 'child_process';
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
@@ -11,7 +11,7 @@ import inquirer from 'inquirer';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
-const CONFIG_DIR = join(homedir(), '.commit-sage');
+const CONFIG_DIR = join(homedir(), '.commitpilot-ai');
 const CONFIG_FILE = join(CONFIG_DIR, 'config.json');
 
 function getConfig() {
@@ -37,7 +37,7 @@ export function configureSettings(options) {
 export function showConfig() {
   const config = getConfig();
   console.log('');
-  console.log(chalk.bold.magenta('  🧙 commit-sage config'));
+  console.log(chalk.bold.magenta('  🧙 commitpilot-ai config'));
   console.log(chalk.gray('  ─────────────────────────────'));
   const key = config.openaiApiKey;
   console.log(chalk.cyan('  API Key:  '), key ? chalk.gray(key.slice(0,7) + '...' + key.slice(-4)) : chalk.red('Not set'));
@@ -218,7 +218,7 @@ export async function generateCommitMessage(options) {
   let   provider = options.provider || config.defaultProvider || null;
 
   console.log('');
-  console.log(chalk.bold.magenta('  🧙 commit-sage v2.0'));
+  console.log(chalk.bold.magenta('  🧙 commitpilot-ai v2.0'));
   console.log(chalk.gray('  ─────────────────────────────'));
   console.log(`  ${MOOD_EMOJI[mood] || '💼'} Mood: ${chalk.cyan(mood)}   ${LANG_EMOJI[lang] || '🌐'} Lang: ${chalk.cyan(lang)}`);
   console.log(chalk.gray('  ─────────────────────────────'));
@@ -252,8 +252,8 @@ export async function generateCommitMessage(options) {
     const apiKey = process.env.OPENAI_API_KEY || config.openaiApiKey;
     if (!apiKey) {
       console.log(chalk.red('  ❌  No OpenAI API key found!'));
-      console.log(chalk.yellow('  Run: commit-sage config --key sk-...'));
-      console.log(chalk.gray('  Or use Ollama for free: commit-sage config --provider ollama'));
+      console.log(chalk.yellow('  Run: commitpilot-ai config --key sk-...'));
+      console.log(chalk.gray('  Or use Ollama for free: commitpilot-ai config --provider ollama'));
       process.exit(1);
     }
   }

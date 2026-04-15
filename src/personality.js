@@ -238,7 +238,7 @@ export async function showPersonalityReport(options) {
     const personality = getPersonality(s);
 
     console.log('');
-    console.log(chalk.bold.magenta('  🧙 commit-sage — Personality Report'));
+    console.log(chalk.bold.magenta('  🧙 commitpilot-ai — Personality Report'));
     console.log(chalk.gray('  ══════════════════════════════════════'));
     console.log(`  ${chalk.bold(personality.label)}`);
     console.log(`  ${chalk.gray(personality.desc)}`);
@@ -266,7 +266,7 @@ export async function showPersonalityReport(options) {
     // Tip
     console.log('');
     if (s.lazy > s.total * 0.4) {
-      console.log(chalk.yellow('  💡 Tip: Bahut lazy commits hain. commit-sage regularly use karo!'));
+      console.log(chalk.yellow('  💡 Tip: Bahut lazy commits hain. commitpilot-ai regularly use karo!'));
     } else if (score >= 70) {
       console.log(chalk.green('  🏆 Bhai clean commits likhta hai tu! Keep it up!'));
     } else {
@@ -278,7 +278,7 @@ export async function showPersonalityReport(options) {
     const authors = Object.values(stats).sort((a, b) => calcScore(b) - calcScore(a));
 
     console.log('');
-    console.log(chalk.bold.magenta('  🧙 commit-sage — Team Report'));
+    console.log(chalk.bold.magenta('  🧙 commitpilot-ai — Team Report'));
     console.log(chalk.gray('  ══════════════════════════════════════════════════'));
 
     for (const s of authors) {
@@ -313,8 +313,8 @@ export async function showPersonalityReport(options) {
 
   console.log('');
   console.log(chalk.gray('  ══════════════════════════════════════════════════'));
-  console.log(chalk.gray('  Run: commit-sage score --team  for full team view'));
-  console.log(chalk.gray('  Run: commit-sage score --single for your own score'));
+  console.log(chalk.gray('  Run: commitpilot-ai score --team  for full team view'));
+  console.log(chalk.gray('  Run: commitpilot-ai score --single for your own score'));
   console.log('');
 }
 
@@ -349,7 +349,7 @@ export function showStreak() {
   );
 
   console.log('');
-  console.log(chalk.bold.magenta('  🔥 commit-sage — Streak Report'));
+  console.log(chalk.bold.magenta('  🔥 commitpilot-ai — Streak Report'));
   console.log(chalk.gray('  ─────────────────────────────'));
 
   const flames = '🔥'.repeat(Math.min(streak, 7));
