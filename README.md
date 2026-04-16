@@ -1,9 +1,9 @@
-﻿# 🧙 commitpilot-ai
+# 🧙 git-pandit
 
 > An AI-powered CLI that analyzes your staged git diff and generates smart, meaningful commit messages — so you never write a lazy `fix stuff` commit again.
 
-[![npm version](https://img.shields.io/npm/v/commit-sage)](https://www.npmjs.com/package/commit-sage)
-[![npm downloads](https://img.shields.io/npm/dm/commit-sage)](https://www.npmjs.com/package/commit-sage)
+[![npm version](https://img.shields.io/npm/v/git-pandit)](https://www.npmjs.com/package/git-pandit)
+[![npm downloads](https://img.shields.io/npm/dm/git-pandit)](https://www.npmjs.com/package/git-pandit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
 
@@ -11,7 +11,7 @@
 
 ## ✨ What Makes This Different?
 
-| Feature | Other tools | commit-sage |
+| Feature | Other tools | git-pandit |
 |---|---|---|
 | Works 100% offline (FREE) | ❌ | ✅ via Ollama |
 | Hinglish / Hindi commit mode | ❌ | ✅ |
@@ -26,7 +26,7 @@
 ## 📦 Installation
 
 ```bash
-npm install -g commitpilot-ai
+npm install -g git-pandit
 ```
 
 **Requirements:** Node.js >= 18.0.0
@@ -41,21 +41,21 @@ npm install -g commitpilot-ai
 ollama pull llama3
 
 # 2. Set Ollama as default provider
-commit-sage config --provider ollama
+git-pandit config --provider ollama
 
 # 3. Stage your changes and run
 git add .
-commit-sage
+git-pandit
 ```
 
 ### Option B — OpenAI
 ```bash
 # 1. Set your OpenAI API key
-commit-sage config --key sk-your-openai-key
+git-pandit config --key sk-your-openai-key
 
 # 2. Stage your changes and run
 git add .
-commit-sage
+git-pandit
 ```
 
 ---
@@ -112,14 +112,14 @@ fix: प्रमाणीकरण त्रुटि को ठीक कि�
 Analyze your commit history and get a personality score with team reports and fun awards.
 
 ```bash
-commitpilot-ai score           # your personal score
-commitpilot-ai score --team    # full team report with awards
-commitpilot-ai streak          # your commit streak
+git-pandit score           # your personal score
+git-pandit score --team    # full team report with awards
+git-pandit streak          # your commit streak
 ```
 
 ### Personal Score
 ```
-  🧙 commitpilot-ai — Personality Report
+  🧙 git-pandit — Personality Report
   ══════════════════════════════════════
   💀 The Savage
   "idk why this works" energy
@@ -142,7 +142,7 @@ commitpilot-ai streak          # your commit streak
 
 ### Team Report
 ```
-  🧙 commitpilot-ai — Team Report
+  🧙 git-pandit — Team Report
   ══════════════════════════════════════════════════
 
   Alice Johnson   💼 The Professional
@@ -171,7 +171,7 @@ commitpilot-ai streak          # your commit streak
 
 ### Streak Tracker
 ```
-  🔥commitpilot-ai — Streak Report
+  🔥 git-pandit — Streak Report
   ─────────────────────────────
   5-day streak  🔥🔥🔥🔥🔥
 
@@ -206,37 +206,37 @@ commitpilot-ai streak          # your commit streak
 
 ```bash
 # Generate commit message (default)
-commitpilot-ai
-commitpilot-ai generate
+git-pandit
+git-pandit generate
 
 # With flags
-commitpilot-ai --mood savage           # savage tone
-commitpilot-ai --mood poetic           # poetic tone
-commitpilot-ai --mood professional     # clean and formal (default)
-commitpilot-ai --lang hinglish         # Hinglish language
-commitpilot-ai --lang hindi            # Hindi language
-commitpilot-ai --lang english          # English (default)
-commitpilot-ai --type feat             # force a specific commit type
-commitpilot-ai --count 5               # get 5 suggestions instead of 3
-commitpilot-ai --provider ollama       # use Ollama for this run
-commitpilot-ai --provider openai       # use OpenAI for this run
+git-pandit --mood savage           # savage tone
+git-pandit --mood poetic           # poetic tone
+git-pandit --mood professional     # clean and formal (default)
+git-pandit --lang hinglish         # Hinglish language
+git-pandit --lang hindi            # Hindi language
+git-pandit --lang english          # English (default)
+git-pandit --type feat             # force a specific commit type
+git-pandit --count 5               # get 5 suggestions instead of 3
+git-pandit --provider ollama       # use Ollama for this run
+git-pandit --provider openai       # use OpenAI for this run
 
 # Mix and match
-commit-sage --mood savage --lang hinglish --count 5
+git-pandit --mood savage --lang hinglish --count 5
 
 # Personality & streaks
-commitpilot-ai score                   # personal personality report
-commitpilot-ai score --team            # full team report with awards
-commitpilot-ai score --single          # force single-user mode
-commitpilot-ai streak                  # commit streak tracker
+git-pandit score                   # peHrsonal personality report
+git-pandit score --team            # full team report with awards
+git-pandit score --single          # force single-user mode
+git-pandit streak                  # commit streak tracker
 
 # Configuration
-commitpilot-ai config --key sk-...         # set OpenAI API key
-commitpilot-ai config --provider ollama    # set default provider
-commitpilot-ai config --provider openai    # set default provider
-commitpilot-ai config --mood savage        # set default mood
-commitpilot-ai config --lang hinglish      # set default language
-commitpilot-ai config --show               # view current config
+git-pandit config --key sk-...         # set OpenAI API key
+git-pandit config --provider ollama    # set default provider
+git-pandit config --provider openai    # set default provider
+git-pandit config --mood savage        # set default mood
+git-pandit config --lang hinglish      # set default language
+git-pandit config --show               # view current config
 ```
 
 ---
@@ -255,7 +255,7 @@ ollama pull mistral       # lighter, faster option
 ollama pull phi3          # smallest, good for low-end machines
 
 # Step 3 — Set as default
-commitpilot-ai config --provider ollama
+git-pandit config --provider ollama
 
 # Done! No API key needed, works completely offline.
 ```
@@ -266,7 +266,7 @@ commitpilot-ai config --provider ollama
 
 ```bash
 # Option 1 — via CLI
-commitpilot-ai config --key sk-your-openai-api-key
+git-pandit config --key sk-your-openai-api-key
 
 # Option 2 — via environment variable
 export OPENAI_API_KEY=sk-your-openai-api-key
@@ -274,7 +274,7 @@ export OPENAI_API_KEY=sk-your-openai-api-key
 
 Get your API key at [platform.openai.com](https://platform.openai.com).
 
-> commitpilot-ai uses `gpt-4o-mini` by default — fast and very affordable.
+> git-pandit uses `gpt-4o-mini` by default — fast and very affordable.
 
 ---
 
@@ -283,7 +283,7 @@ Get your API key at [platform.openai.com](https://platform.openai.com).
 ```
 git add .                    # Stage your changes
      ↓
-commitpilot-ai                 # Run the CLI
+git-pandit                  # Run the CLI
      ↓
 git diff --cached            # Reads your staged diff
      ↓
@@ -303,14 +303,14 @@ Contributions are welcome! Here's how to get started:
 ```bash
 # 1. Fork the repo on GitHub
 # 2. Clone your fork
-git clone https://github.com/ankurojha834/commit-sage
+git clone https://github.com/ankurojha834/git-pandit
 
 # 3. Install dependencies
 npm install
 
 # 4. Test locally
 npm link
-commitpilot-ai --version
+git-pandit --version
 
 # 5. Create a branch
 git checkout -b feat/your-feature
@@ -325,9 +325,9 @@ Please open an issue before starting major changes so we can discuss the approac
 ## 📋 Changelog
 
 ### v2.0.0
-- Added Git Personality Score (`commitpilot-ai score`)
-- Added Team Report with Awards (`commitpilot-ai score --team`)
-- Added Commit Streak Tracker (`commitpilot-ai streak`)
+- Added Git Personality Score (`git-pandit score`)
+- Added Team Report with Awards (`git-pandit score --team`)
+- Added Commit Streak Tracker (`git-pandit streak`)
 - Added Ollama support (free, offline AI)
 - Added Hinglish and Hindi language modes
 - Added mood personalities: Professional, Savage, Poetic
