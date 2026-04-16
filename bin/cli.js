@@ -5,7 +5,7 @@ import { generateCommitMessage, configureSettings, showConfig } from '../src/ind
 import { showPersonalityReport, showStreak } from '../src/personality.js';
 
 program
-  .name('commitpilot-ai')
+  .name('git-pandit')
   .description('🧙 AI-powered git commit generator with personality scoring!')
   .version('2.0.0');
 
@@ -39,7 +39,7 @@ program
 // ── Config ──
 program
   .command('config')
-  .description('Configure commitpilot-ai settings')
+  .description('Configure git-pandit settings')
   .option('-k, --key <apiKey>', 'Set your OpenAI API key')
   .option('-p, --provider <provider>', 'Default AI provider: openai | ollama')
   .option('-m, --mood <mood>', 'Default mood: professional | savage | poetic')

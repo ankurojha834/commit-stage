@@ -55,12 +55,12 @@ function classifyCommit(commit) {
   const msg = commit.message;
   const hour = commit.date.getHours();
   return {
-    isLazy:        LAZY_PATTERNS.some(p => p.test(msg)) || msg.length < 5,
-    isFire:        FIRE_PATTERNS.some(p => p.test(msg)),
-    isSavage:      SAVAGE_PATTERNS.some(p => p.test(msg)),
+    isLazy: LAZY_PATTERNS.some(p => p.test(msg)) || msg.length < 5,
+    isFire: FIRE_PATTERNS.some(p => p.test(msg)),
+    isSavage: SAVAGE_PATTERNS.some(p => p.test(msg)),
     isConventional: CONVENTIONAL_PATTERN.test(msg),
-    isLateNight:   LATE_NIGHT_HOURS.includes(hour),
-    isWeekend:     [0, 6].includes(commit.date.getDay()),
+    isLateNight: LATE_NIGHT_HOURS.includes(hour),
+    isWeekend: [0, 6].includes(commit.date.getDay()),
     hour
   };
 }
@@ -134,14 +134,14 @@ function getAwards(stats) {
 function getPersonality(s) {
   const ratio = s.total > 0 ? s.conventional / s.total : 0;
 
-  if (s.fire > 5)         return { label: '🚒 Firefighter',    desc: 'Production ka rakhwala' };
-  if (ratio > 0.8)        return { label: '💼 The Professional', desc: 'Clean commits, clean life' };
-  if (s.lateNight > 10)   return { label: '🦉 Night Owl',       desc: 'Raat ko jeevan milta hai' };
+  if (s.fire > 5) return { label: '🚒 Firefighter', desc: 'Production ka rakhwala' };
+  if (ratio > 0.8) return { label: '💼 The Professional', desc: 'Clean commits, clean life' };
+  if (s.lateNight > 10) return { label: '🦉 Night Owl', desc: 'Raat ko jeevan milta hai' };
   if (s.lazy > s.total * 0.5) return { label: '😴 The Lazy Dev', desc: '"fix" aur "update" fan' };
-  if (s.savage > 5)       return { label: '💀 The Savage',      desc: '"idk why this works" energy' };
-  if (s.weekend > 5)      return { label: '😵 No Life Dev',     desc: 'Weekend? Kya hota hai?' };
-  if (ratio > 0.5)        return { label: '📚 The Learner',     desc: 'Improving every day' };
-  return                         { label: '🎲 The Chaotic',     desc: 'Unpredictable but creative' };
+  if (s.savage > 5) return { label: '💀 The Savage', desc: '"idk why this works" energy' };
+  if (s.weekend > 5) return { label: '😵 No Life Dev', desc: 'Weekend? Kya hota hai?' };
+  if (ratio > 0.5) return { label: '📚 The Learner', desc: 'Improving every day' };
+  return { label: '🎲 The Chaotic', desc: 'Unpredictable but creative' };
 }
 
 // ─── Score Calculator ─────────────────────────────────────────────────────────
@@ -173,7 +173,7 @@ function calcStreak(commits) {
 
   let streak = 1;
   for (let i = 1; i < days.length; i++) {
-    const diff = (new Date(days[i-1]) - new Date(days[i])) / 86400000;
+    const diff = (new Date(days[i - 1]) - new Date(days[i])) / 86400000;
     if (diff <= 1) streak++;
     else break;
   }
@@ -214,12 +214,12 @@ export async function showPersonalityReport(options) {
     const cls = classifyCommit(commit);
     s.total++;
     s.commits.push(commit);
-    if (cls.isLazy)         s.lazy++;
-    if (cls.isFire)         s.fire++;
-    if (cls.isSavage)       s.savage++;
+    if (cls.isLazy) s.lazy++;
+    if (cls.isFire) s.fire++;
+    if (cls.isSavage) s.savage++;
     if (cls.isConventional) s.conventional++;
-    if (cls.isLateNight)    s.lateNight++;
-    if (cls.isWeekend)      s.weekend++;
+    if (cls.isLateNight) s.lateNight++;
+    if (cls.isWeekend) s.weekend++;
   }
 
   // Calc streaks
@@ -238,7 +238,7 @@ export async function showPersonalityReport(options) {
     const personality = getPersonality(s);
 
     console.log('');
-    console.log(chalk.bold.magenta('  🧙 commitpilot-ai — Personality Report'));
+    console.log(chalk.bold.magenta('  🧙 git-pandit — Personality Report'));
     console.log(chalk.gray('  ══════════════════════════════════════'));
     console.log(`  ${chalk.bold(personality.label)}`);
     console.log(`  ${chalk.gray(personality.desc)}`);
@@ -246,7 +246,7 @@ export async function showPersonalityReport(options) {
     console.log(`  ${chalk.cyan('Commit Score:')}  ${scoreBar(score)}`);
     console.log('');
     console.log(`  ${chalk.cyan('Total commits:')}    ${chalk.white(s.total)}`);
-    console.log(`  ${chalk.cyan('Conventional:')}     ${chalk.green(s.conventional)} ${chalk.gray(`(${Math.round(s.conventional/s.total*100)}%)`)}`);
+    console.log(`  ${chalk.cyan('Conventional:')}     ${chalk.green(s.conventional)} ${chalk.gray(`(${Math.round(s.conventional / s.total * 100)}%)`)}`);
     console.log(`  ${chalk.cyan('Lazy commits:')}     ${chalk.red(s.lazy)} ${s.lazy > 5 ? chalk.red('← bhai yeh theek karo') : ''}`);
     console.log(`  ${chalk.cyan('Hotfixes:')}         ${s.fire > 3 ? chalk.red(s.fire + ' 🔥') : chalk.white(s.fire)}`);
     console.log(`  ${chalk.cyan('Late night:')}       ${s.lateNight > 5 ? chalk.yellow(s.lateNight + ' 🦉') : chalk.white(s.lateNight)}`);
@@ -266,7 +266,7 @@ export async function showPersonalityReport(options) {
     // Tip
     console.log('');
     if (s.lazy > s.total * 0.4) {
-      console.log(chalk.yellow('  💡 Tip: Bahut lazy commits hain. commitpilot-ai regularly use karo!'));
+      console.log(chalk.yellow('  💡 Tip: Bahut lazy commits hain. git-pandit regularly use karo!'));
     } else if (score >= 70) {
       console.log(chalk.green('  🏆 Bhai clean commits likhta hai tu! Keep it up!'));
     } else {
@@ -278,7 +278,7 @@ export async function showPersonalityReport(options) {
     const authors = Object.values(stats).sort((a, b) => calcScore(b) - calcScore(a));
 
     console.log('');
-    console.log(chalk.bold.magenta('  🧙 commitpilot-ai — Team Report'));
+    console.log(chalk.bold.magenta('  🧙 git-pandit — Team Report'));
     console.log(chalk.gray('  ══════════════════════════════════════════════════'));
 
     for (const s of authors) {
@@ -313,8 +313,8 @@ export async function showPersonalityReport(options) {
 
   console.log('');
   console.log(chalk.gray('  ══════════════════════════════════════════════════'));
-  console.log(chalk.gray('  Run: commitpilot-ai score --team  for full team view'));
-  console.log(chalk.gray('  Run: commitpilot-ai score --single for your own score'));
+  console.log(chalk.gray('  Run: git-pandit score --team  for full team view'));
+  console.log(chalk.gray('  Run: git-pandit score --single for your own score'));
   console.log('');
 }
 
@@ -349,7 +349,7 @@ export function showStreak() {
   );
 
   console.log('');
-  console.log(chalk.bold.magenta('  🔥 commitpilot-ai — Streak Report'));
+  console.log(chalk.bold.magenta('  🔥 git-pandit — Streak Report'));
   console.log(chalk.gray('  ─────────────────────────────'));
 
   const flames = '🔥'.repeat(Math.min(streak, 7));
