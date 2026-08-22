@@ -9,7 +9,7 @@
 
 ---
 
-## ✨ What Makes This Different?
+## ✨ What Makes This Differents?
 
 | Feature | Other tools | git-pandit |
 |---|---|---|
