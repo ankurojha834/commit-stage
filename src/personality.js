@@ -6,10 +6,10 @@ import ora from 'ora';
 
 function getAllCommits() {
   try {
-    const raw = execSync(
-      'git log --pretty=format:"%an|%ae|%s|%ai" --no-merges',
-      { encoding: 'utf-8' }
-    ).trim();
+    // const raw = execSync(
+    //   'git log --pretty=format:"%an|%ae|%s|%ai" --no-merges',
+    //   { encoding: 'utf-8' }
+    // ).trim();
     if (!raw) return [];
     return raw.split('\n').map(line => {
       const [name, email, message, date] = line.split('|');
